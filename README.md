@@ -1,7 +1,7 @@
 <!--
  * @Author: 梁霜
  * @Date: 2021-12-07 14:02:06
- * @LastEditTime: 2021-12-30 10:59:51
+ * @LastEditTime: 2021-12-30 11:03:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack-study/README.md
@@ -17,6 +17,6 @@ devServer.contentText 弃用问题
 > 调用 cli.buildCommand() => cli.createCompiler() => webpack()
 <table>
     <tr>
-        <td bgcolor=#000>调用 cli.buildCommand() => cli.createCompiler() => webpack()</td>
+        <td bgcolor=black>调用 cli.buildCommand() => cli.createCompiler() => webpack()</td>
     </tr>
 </table>
