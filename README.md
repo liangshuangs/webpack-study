@@ -1,7 +1,7 @@
 <!--
  * @Author: 梁霜
  * @Date: 2021-12-07 14:02:06
- * @LastEditTime: 2021-12-30 17:32:27
+ * @LastEditTime: 2021-12-30 17:38:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack-study/README.md
@@ -17,4 +17,8 @@ devServer.contentText 弃用问题
 
 ```
 1.1.1 调用 cli.buildCommand() => cli.createCompiler() => webpack()
+```
+**1.2 实例化compiler对象 ./lib/webpack.js**
+```
+1.2.1 create() => createCompiler(webpackOptions)
 ```
