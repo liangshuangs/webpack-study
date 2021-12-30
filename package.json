@@ -5,13 +5,21 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "debug": "webpack"
+    "debug3": "node --inspect-brk=5858 ./node_modules/webpack-cli/bin/cli.js",
+    "debug2": "node --inspect=5858 ./node_modules/webpack/bin/webpack.js",
+    "debug": "node --inspect-brk=5858 ./node_modules/webpack-cli/bin/cli.js --config webpack.config.js",
+    "start": "node ./startDevServer.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mime": "^2.0.3",
+    "@types/socket.io": "^3.0.2",
     "html-webpack-plugin": "^5.5.0",
+    "memory-fs": "^0.5.0",
+    "mime": "^3.0.0",
+    "socket.io": "^4.4.0",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0"
