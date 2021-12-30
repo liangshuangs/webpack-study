@@ -1,7 +1,7 @@
 <!--
  * @Author: 梁霜
  * @Date: 2021-12-07 14:02:06
- * @LastEditTime: 2021-12-30 19:29:30
+ * @LastEditTime: 2021-12-30 19:36:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack-study/README.md
@@ -37,7 +37,16 @@ devServer.contentText 弃用问题
 **1.4 执行入口插件监听了make钩子 Compiler类 ./utils/entryPlugin.js**
 ```
 1.4.1 执行时机，因为在compile方法中触发了make钩子
-1.4.2 调用compilation.addEntry方法 compilation.addEntry(context, dep, options,callback) => _addEntryItem => addModuleTree
+1.4.2 调用compilation.addEntry方法 compilation.addEntry(context, dep, options,callback) => _addEntryItem => addModuleTree => handleModuleCreation => factorizeModule => this.factorizeQueue.add()
 1.4.3 compilation.addEntry => _addEntryItem(context, entry, "dependencies", options, callback)
 1.4.4 _addEntryItem 收集入口依赖 将入口文件的依赖收集到entryData.dependencies, 然后entryData保存到compilation.entries中 => 触发addEntry钩子 => addModuleTree(context,dependency,contextInfo,callback)
+1.4.5 handleModuleCreation(factory,dependencies,originModule,contextInfo,context) 其中dependencies是数组[入口对象]
+1.4.6 factorizeModule(currentProfile,factory,dependencies,factoryResult,originModule,contextInfo,context)
+1.4.7 this.factorizeQueue 是一个实例对象 this.factorizeQueue.add(options, callback)
+this.factorizeQueue = new AsyncQueue({
+	name: "factorize",
+	parent: this.addModuleQueue,
+	processor: this._factorizeModule.bind(this)
+}); 
+并且把_factorizeModule赋值给了processor
 ```
